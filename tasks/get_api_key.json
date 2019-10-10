@@ -1,0 +1,17 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "A short description of this task",
+  "files": ["ruby_task_helper/files/task_helper.rb"],
+  "input_method": "stdin",
+  "parameters": {
+    "login_token": {
+      "type": "String[1]",
+      "description": "The new admin password."
+    },
+    "control_plane": {
+      "type": "String[1]",
+      "description": "The control plane."
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "A short description of this task",
+  "files": ["ruby_task_helper/files/task_helper.rb"],
+  "input_method": "stdin",
+  "parameters": {
+    "cluster_id": {
+      "type": "String[1]",
+      "description": "The login token password."
+    },
+    "api_token": {
+      "type": "String[1]",
+      "description": "The login token password."
+    },
+    "control_plane": {
+      "type": "String[1]",
+      "description": "The control plane."
+    }
+  }
+}
