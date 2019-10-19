@@ -4,9 +4,6 @@ plan rancher::install_rancher(
   String[1] $cluster_name = 'fancy-cluster',
   String[1] $new_password = 'fancy_password',
 ) {
-  # run_plan('rancher::install_docker', $control_plane)
-  # run_plan('rancher::install_docker', $workers)
-  # run_task('rancher::install_rancher', $control_plane, _catch_errors => true)
 
   $login_token_result_set = run_task('rancher::get_login_token', 'localhost', control_plane => $control_plane)
   $login_token = $login_token_result_set.first().message
@@ -22,12 +19,13 @@ plan rancher::install_rancher(
   $cluster_join_result_set = run_task('rancher::get_cluster_registration_token', 'localhost', control_plane => $control_plane, cluster_id => $cluster_id, api_token => $api_token)
   $cluster_join_command = $cluster_join_result_set.first().message
 
-  #$server_command_result_set = run_task('exec', $control_plane, command => "${cluster_join_command} --etcd --controlplane")
-  #$server_join_status = $server_command_result_set.first().message
+  $server_join_command_result_set = run_task('exec', $control_plane, command => "${cluster_join_command} --etcd --controlplane")
+  $server_join_status = $server_join_command_result_set.first().message
 
-  #$worker_command_result_set = run_task('exec', $workers, command => "${cluster_join_command} --worker")
-  #$worker_join_status = $worker_command_result_set.first().message
+  $worker_join_command_result_set = run_task('exec', $workers, command => "${cluster_join_command} --worker")
+  $worker_join_status = $worker_join_command_result_set.first().message
 
-  out::message("***${cluster_join_command}***")
-  #out::message("***${join_status}***")
+  out::message("***${server_join_status}***")
+  out::message("***${worker_join_status}***")
+
 }
