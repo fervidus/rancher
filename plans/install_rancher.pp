@@ -1,7 +1,7 @@
 plan rancher::install_rancher(
   TargetSpec $control_plane,
   TargetSpec $workers,
-  String[1] $cluster_name = 'fancy-cluster20',
+  String[1] $cluster_name = 'fancy-cluster',
   String[1] $new_password = 'fancy_password',
 ) {
   # run_plan('rancher::install_docker', $control_plane)
