@@ -1,0 +1,9 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "Removes all containers and images",
+  "files": ["ruby_task_helper/files/task_helper.rb"],
+  "input_method": "stdin",
+  "parameters": {
+  }
+}

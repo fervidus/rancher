@@ -1,4 +1,5 @@
 #!/opt/puppetlabs/puppet/bin/ruby
+
 require 'open3'
 require 'json'
 require 'puppet'
