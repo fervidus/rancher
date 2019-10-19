@@ -22,8 +22,12 @@ plan rancher::install_rancher(
   $cluster_join_result_set = run_task('rancher::get_cluster_registration_token', 'localhost', control_plane => $control_plane, cluster_id => $cluster_id, api_token => $api_token)
   $cluster_join_command = $cluster_join_result_set.first().message
 
-  $command_result_set = run_task('exec', $control_plane, command => "${cluster_join_command} --etcd --controlplane")
-  $join_status = $command_result_set.first().message
+  #$server_command_result_set = run_task('exec', $control_plane, command => "${cluster_join_command} --etcd --controlplane")
+  #$server_join_status = $server_command_result_set.first().message
 
-  out::message("***${join_status}***")
+  #$worker_command_result_set = run_task('exec', $workers, command => "${cluster_join_command} --worker")
+  #$worker_join_status = $worker_command_result_set.first().message
+
+  out::message("***${cluster_join_command}***")
+  #out::message("***${join_status}***")
 }
