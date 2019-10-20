@@ -6,5 +6,4 @@ plan rancher::cleanup_nodes(
   run_task('rancher::cleanup_nodes', $control_plane)
   run_task('rancher::cleanup_nodes', $workers)
 
-
 }
