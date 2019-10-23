@@ -11,7 +11,7 @@ class MyTask < TaskHelper
     # Change the password
     change_cmd = "curl -s 'https://#{kwargs[:control_plane]}/v3/users?action=changepassword' -H 'content-type: application/json' -H \"Authorization: Bearer #{kwargs[:login_token]}\" --data-binary '{\"currentPassword\":\"admin\",\"newPassword\":\"#{kwargs[:new_password]}\"}' --insecure"
     y_stdout, y_stderr, y_status = Open3.capture3(*change_cmd) # rubocop:disable Lint/UselessAssignment
-    raise Puppet::Error, _("stderr: ' #{y_stderr}') % { stderr: y_stderr }") if status != 0
+    raise Puppet::Error, _("stderr: ' #{y_stderr}') % { stderr: y_stderr }") if y_status != 0
 
     y_stdout.strip
   end
