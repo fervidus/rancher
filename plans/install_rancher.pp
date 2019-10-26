@@ -13,7 +13,7 @@ plan rancher::install_rancher(
   $api_token = $api_token_result_set.first().message
   out::message("*** api_token: ${api_token}")
 
-  $set_url_result_set = run_task('rancher::set_rancher_url', 'localhost', control_plane => $server, rancher_url => $server, api_token => $api_token)
+  $set_url_result_set = run_task('rancher::set_rancher_url', 'localhost', control_plane => $server, rancher_url => "https://${server}", api_token => $api_token)
 
   $create_cluster_result_set = run_task('rancher::create_cluster', 'localhost', control_plane => $server, cluster_name => $cluster_name, api_token => $api_token)
   $cluster_id = $create_cluster_result_set.first().message
