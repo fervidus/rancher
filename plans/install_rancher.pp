@@ -23,12 +23,12 @@ plan rancher::install_rancher(
   $cluster_join_command = $cluster_join_result_set.first().message
   out::message("*** cluster_join_command: ${cluster_join_command}")
 
-  #$server_join_command_result_set = run_task('exec', $server, command => "${cluster_join_command} --etcd --controlplane")
-  #$server_join_status = $server_join_command_result_set.first().message
-  #out::message("*** server_join_status: ${server_join_status}")
+  $server_join_command_result_set = run_task('exec', $server, command => "${cluster_join_command} --etcd --controlplane")
+  $server_join_status = $server_join_command_result_set.first().message
+  out::message("*** server_join_status: ${server_join_status}")
 
-  #$worker_join_command_result_set = run_task('exec', $workers, command => "${cluster_join_command} --worker")
-  #$worker_join_status = $worker_join_command_result_set.first().message
-  #out::message("*** worker_join_status: ${worker_join_status}")
+  $worker_join_command_result_set = run_task('exec', $workers, command => "${cluster_join_command} --worker")
+  $worker_join_status = $worker_join_command_result_set.first().message
+  out::message("*** worker_join_status: ${worker_join_status}")
 
 }
