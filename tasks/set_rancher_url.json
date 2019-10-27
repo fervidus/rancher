@@ -11,7 +11,7 @@
     },
     "rancher_url": {
       "type": "String[1]",
-      "description": "The login token password."
+      "description": "Rancher URL."
     },
     "rancher_server": {
       "type": "String[1]",
