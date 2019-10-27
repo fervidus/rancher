@@ -7,11 +7,11 @@
   "parameters": {
     "api_token": {
       "type": "String[1]",
-      "description": "The login token password."
+      "description": "API token."
     },
     "cluster_name": {
       "type": "String[1]",
-      "description": "The login token password."
+      "description": "Name of cluster to create."
     },
     "rancher_server": {
       "type": "String[1]",
