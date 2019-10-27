@@ -16,8 +16,6 @@ class MyTask < TaskHelper
     cmd_images_rm = '/usr/bin/sudo /usr/bin/docker image ls | /usr/bin/awk \'{ print $3 }\' | /usr/bin/grep -v ^IMA | while read image; do /usr/bin/sudo /usr/bin/docker rmi ${image}; done'
     stdout, stderr, status = Open3.capture3(*cmd_images_rm) # rubocop:disable Lint/UselessAssignment
 
-    # raise Puppet::Error, _("stderr: ' #{stderr}') % { stderr: stderr }") if status != 0
-
     { stdout: stdout.strip }.to_json
   end
 end

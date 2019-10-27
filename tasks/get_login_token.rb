@@ -9,7 +9,7 @@ require_relative '../../ruby_task_helper/files/task_helper.rb'
 
 class MyTask < TaskHelper
   def task(name: nil, **kwargs)
-    uri = URI.parse("https://#{kwargs[:control_plane]}/v3-public/localProviders/local?action=login")
+    uri = URI.parse("https://#{kwargs[:rancher_server]}/v3-public/localProviders/local?action=login")
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE

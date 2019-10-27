@@ -9,7 +9,7 @@ require_relative '../../ruby_task_helper/files/task_helper.rb'
 class MyTask < TaskHelper
   def task(name: nil, **kwargs)
     # Change the password
-    change_cmd = "curl -s 'https://#{kwargs[:control_plane]}/v3/users?action=changepassword' -H 'content-type: application/json' -H \"Authorization: Bearer #{kwargs[:login_token]}\" --data-binary '{\"currentPassword\":\"admin\",\"newPassword\":\"#{kwargs[:new_password]}\"}' --insecure"
+    change_cmd = "curl -s 'https://#{kwargs[:rancher_server]}/v3/users?action=changepassword' -H 'content-type: application/json' -H \"Authorization: Bearer #{kwargs[:login_token]}\" --data-binary '{\"currentPassword\":\"#{kwargs[:current_password]}\",\"newPassword\":\"#{kwargs[:new_password]}\"}' --insecure"
     y_stdout, y_stderr, y_status = Open3.capture3(*change_cmd) # rubocop:disable Lint/UselessAssignment
     raise Puppet::Error, _("stderr: ' #{y_stderr}') % { stderr: y_stderr }") if y_status != 0
 

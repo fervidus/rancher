@@ -53,7 +53,7 @@ class MyTask < TaskHelper
     }.to_json
   
 
-    uri = URI.parse("https://#{kwargs[:control_plane]}/v3/cluster")
+    uri = URI.parse("https://#{kwargs[:rancher_server]}/v3/cluster")
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE

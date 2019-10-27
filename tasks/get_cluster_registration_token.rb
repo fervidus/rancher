@@ -8,7 +8,7 @@ require_relative '../../ruby_task_helper/files/task_helper.rb'
 
 class MyTask < TaskHelper
   def task(name: nil, **kwargs)
-    uri = URI.parse("https://#{kwargs[:control_plane]}/v3/clusterregistrationtoken")
+    uri = URI.parse("https://#{kwargs[:rancher_server]}/v3/clusterregistrationtoken")
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
@@ -25,7 +25,7 @@ class MyTask < TaskHelper
     cluster_registration_token = JSON.parse(response.body)['id']
     cluster_registration_token = cluster_registration_token.strip
 
-    uri2 = URI.parse("https://#{kwargs[:control_plane]}/v3/clusterregistrationtoken?id=\"#{cluster_registration_token}\"")
+    uri2 = URI.parse("https://#{kwargs[:rancher_server]}/v3/clusterregistrationtoken?id=\"#{cluster_registration_token}\"")
     http2 = Net::HTTP.new(uri2.host, uri2.port)
     http2.use_ssl = true
     http2.verify_mode = OpenSSL::SSL::VERIFY_NONE

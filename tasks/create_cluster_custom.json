@@ -1,7 +1,7 @@
 {
   "puppet_task_version": 1,
   "supports_noop": false,
-  "description": "A short description of this task",
+  "description": "Create a cluster using custom settings",
   "files": ["ruby_task_helper/files/task_helper.rb"],
   "input_method": "stdin",
   "parameters": {
@@ -13,9 +13,9 @@
       "type": "String[1]",
       "description": "The login token password."
     },
-    "control_plane": {
+    "rancher_server": {
       "type": "String[1]",
-      "description": "The control plane."
+      "description": "FQDN of Rancher server."
     }
   }
 }

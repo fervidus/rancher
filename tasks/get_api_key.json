@@ -9,9 +9,9 @@
       "type": "String[1]",
       "description": "The new admin password."
     },
-    "control_plane": {
+    "rancher_server": {
       "type": "String[1]",
-      "description": "The control plane."
+      "description": "FQDN of Rancher server."
     }
   }
 }

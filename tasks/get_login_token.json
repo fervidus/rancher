@@ -5,9 +5,9 @@
   "files": ["ruby_task_helper/files/task_helper.rb"],
   "input_method": "stdin",
   "parameters": {
-    "control_plane": {
+    "rancher_server": {
       "type": "String[1]",
-      "description": "The control plane."
+      "description": "FQDN of Rancher server."
     }
   }
 }
