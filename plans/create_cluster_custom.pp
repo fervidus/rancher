@@ -3,9 +3,10 @@ plan rancher::create_cluster_custom(
   TargetSpec $cluster_controllers,
   TargetSpec $cluster_workers,
   String[1] $cluster_name = 'default-cluster',
+  String[1] $admin_password = 'admin',
 ) {
 
-  $login_token_result_set = run_task('rancher::get_login_token', 'localhost', rancher_server => $rancher_server)
+  $login_token_result_set = run_task('rancher::get_login_token', 'localhost', rancher_server => $rancher_server, admin_password => $admin_password )
   $login_token = $login_token_result_set.first().message
   out::message("*** login_token: ${login_token}")
 

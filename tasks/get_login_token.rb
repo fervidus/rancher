@@ -15,7 +15,7 @@ class MyTask < TaskHelper
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
     request = Net::HTTP::Post.new(uri, 'Content-type' => 'application/json')
-    request.body = { username: 'admin', password: 'admin' }.to_json
+    request.body = { username: 'admin', password: "#{kwargs[:admin_password]}" }.to_json
 
     response = http.request(request)
 

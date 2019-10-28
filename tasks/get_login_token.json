@@ -8,6 +8,10 @@
     "rancher_server": {
       "type": "String[1]",
       "description": "FQDN of Rancher server."
+    },
+    "admin_password": {
+      "type": "String[1]",
+      "description": "Password of admin user."
     }
   }
 }
