@@ -23,9 +23,9 @@ plan rancher::create_cluster_custom(
   $cluster_join_command = $cluster_join_result_set.first().message
   out::message("*** cluster_join_command: ${cluster_join_command}")
 
-  $control_join_command_result_set = run_task('exec', $cluster_controlers, command => "${control_join_command} --etcd --controlplane")
-  $control_join_status = $control_join_command_result_set.first().message
-  out::message("*** control_join_status: ${control_join_status}")
+  $controller_join_command_result_set = run_task('exec', $cluster_controllers, command => "${cluster_join_command} --etcd --controlplane")
+  $controller_join_status = $controller_join_command_result_set.first().message
+  out::message("*** controller_join_status: ${controller_join_status}")
 
   $worker_join_command_result_set = run_task('exec', $cluster_workers, command => "${cluster_join_command} --worker")
   $worker_join_status = $worker_join_command_result_set.first().message
