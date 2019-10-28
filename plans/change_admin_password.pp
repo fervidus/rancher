@@ -1,4 +1,4 @@
-plan rancher::create_cluster_custom(
+plan rancher::change_admin_password(
   TargetSpec $rancher_server,
   String[1] $current_password = 'admin',
   String[1] $new_password,
