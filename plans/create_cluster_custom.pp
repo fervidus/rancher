@@ -26,7 +26,7 @@ plan rancher::create_cluster_custom(
   $controller_join_command_result_set = run_task('exec', $cluster_controllers, command => "${cluster_join_command} --etcd --controlplane")
 
   $controller_join_statuses = $controller_join_command_result_set.map | $controller_join_result | {
-    $node = $result.target.name
+    $node = $controller_join_result.target.name
 
     if $controller_join_result.ok {
       "${node} returned a value: ${controller_join_result.message}"
@@ -42,7 +42,7 @@ plan rancher::create_cluster_custom(
 
 
   $worker_join_statuses = $worker_join_command_result_set.map | $worker_join_result | {
-    $node = $result.target.name
+    $node = $worker_join_result.target.name
 
     if $worker_join_result.ok {
       "${node} returned a value: ${worker_join_result.message}"
