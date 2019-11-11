@@ -1,0 +1,3 @@
+---
+
+rancher::worker::xxx::enforced: true
