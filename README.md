@@ -33,12 +33,6 @@ If there's more that they should know about, though, this is the place to mentio
 * Dependencies that your module automatically installs.
 * Warnings or other important notices.
 
-### Setup Requirements **OPTIONAL**
-
-If your module requires anything extra before setting up (pluginsync enabled, another module, etc.), mention it here.
-
-If your most recent release breaks compatibility or requires particular steps for upgrading, you might want to include an additional "Upgrading" section here.
-
 ### Beginning with rancher
 
 The very basic steps needed for a user to get the module up and running. This can include setup steps, if necessary, or it can be an example of the most basic use of the module.
